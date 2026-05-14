@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | Campus Mini Mart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header small-header">
+        <div class="container top-bar compact">
+            <div>
+                <p class="eyebrow">Shopping Cart</p>
+                <h1>Your Order Summary</h1>
+                <p class="subtitle">Review selected products, update quantities, and complete the checkout process.</p>
+            </div>
+            <a class="btn btn-secondary" href="online_shop.html">Back to Store</a>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container nav-inner">
+            <a href="online_shop.html" class="brand">Campus Mini Mart</a>
+            <div class="nav-links">
+                <a href="online_shop.html">Home</a>
+                <a href="online_shop.html#products">Products</a>
+                <a href="online_shop.html#about">About</a>
+                <a href="cart.html">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container cart-page">
+        <section class="cart-layout">
+            <div>
+                <h2>Selected Items</h2>
+                <p class="section-note">You can increase quantity, remove products, or clear the cart before checkout.</p>
+                <div id="cart-container">
+                    <div id="cart-items"></div>
+                </div>
+                <div id="empty-cart-message" class="empty-state hidden">
+                    <h3>Your cart is empty</h3>
+                    <p>Add products from the store page to start building your order.</p>
+                    <a href="online_shop.html" class="btn btn-primary">Go to Products</a>
+                </div>
+            </div>
+
+            <aside class="cart-summary summary-card">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Items</span>
+                    <span id="summary-items">0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span>$<span id="cart-total">0.00</span></span>
+                </div>
+                <div class="summary-row">
+                    <span>Service Fee</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span>$<span id="cart-total-final">0.00</span></span>
+                </div>
+                <div class="cart-actions stacked">
+                    <button class="btn btn-primary" onclick="checkout()">Checkout</button>
+                    <button class="btn btn-danger" onclick="clearCart()">Clear Cart</button>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p><strong>Campus Mini Mart</strong> - Front-End Web Project</p>
+            <p>Simple cart management with JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>

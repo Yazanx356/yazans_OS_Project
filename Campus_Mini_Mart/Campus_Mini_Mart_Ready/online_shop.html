@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Mini Mart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container top-bar">
+            <div>
+                <p class="eyebrow">Web Project</p>
+                <h1>Campus Mini Mart</h1>
+                <p class="subtitle">A simple online store that helps students order snacks, drinks, and quick meals through a clean and responsive web interface.</p>
+            </div>
+            <a class="cart-pill" href="cart.html" aria-label="Open shopping cart">
+                <span>Cart</span>
+                <span class="cart-badge" id="cart-count">0</span>
+            </a>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container nav-inner">
+            <a href="online_shop.html" class="brand">Campus Mini Mart</a>
+            <div class="nav-links">
+                <a href="online_shop.html">Home</a>
+                <a href="#products">Products</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="cart.html">Cart</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero simple-hero">
+            <div class="container hero-grid single-column">
+                <div class="hero-copy">
+                    <span class="hero-tag">Fast • Simple • Student Friendly</span>
+                    <h2>Everything you need in one small campus store</h2>
+                    <p>This project presents an online shopping experience with product browsing, category filtering, search functionality, cart management, and total price calculation using HTML, CSS, and JavaScript.</p>
+                    <div class="hero-actions">
+                        <a href="#products" class="btn btn-primary">Browse Products</a>
+                        <a href="cart.html" class="btn btn-secondary">Open Cart</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container info-section quick-info">
+            <div class="info-card">
+                <h3>Project Features</h3>
+                <ul>
+                    <li>Responsive product grid for desktop and mobile screens.</li>
+                    <li>Live search to find products quickly.</li>
+                    <li>Category filtering for drinks, snacks, meals, and desserts.</li>
+                    <li>Shopping cart saved using localStorage.</li>
+                </ul>
+            </div>
+            <div class="info-card accent-card">
+                <h3>Project Goal</h3>
+                <p>The goal of this website is to build a simple and user-friendly online store interface that demonstrates front-end development skills and basic cart functionality.</p>
+            </div>
+        </section>
+
+        <section class="container controls-section" id="products">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">Products</p>
+                    <h2>Available Items</h2>
+                </div>
+                <p class="section-note">Use the search box or category buttons to explore the store inventory.</p>
+            </div>
+
+            <div class="toolbar">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search products" aria-label="Search products">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="drink">Drinks</button>
+                    <button class="filter-btn" data-filter="snack">Snacks</button>
+                    <button class="filter-btn" data-filter="meal">Meals</button>
+                    <button class="filter-btn" data-filter="dessert">Desserts</button>
+                </div>
+            </div>
+
+            <div class="products" id="product-list">
+                <article class="product" data-category="drink" data-name="Water Bottle">
+                    <span class="product-tag">Drink</span>
+                    <img src="images/products/water_bottle.webp" alt="Water Bottle">
+                    <h3>Water Bottle</h3>
+                    <p class="product-description">Refreshing bottled water that is perfect for lectures, study sessions, and daily hydration.</p>
+                    <div class="product-footer">
+                        <p class="price">$1.49</p>
+                        <button onclick="addToCart('Water Bottle', 1.49, 'images/products/water_bottle.webp')">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-category="drink" data-name="Energy Drink">
+                    <span class="product-tag">Drink</span>
+                    <img src="images/products/energy_drink.webp" alt="Energy Drink">
+                    <h3>Energy Drink</h3>
+                    <p class="product-description">A quick energy boost for long days, assignments, and late-night revision.</p>
+                    <div class="product-footer">
+                        <p class="price">$2.75</p>
+                        <button onclick="addToCart('Energy Drink', 2.75, 'images/products/energy_drink.webp')">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-category="drink" data-name="Soda Can">
+                    <span class="product-tag">Drink</span>
+                    <img src="images/products/soda.webp" alt="Soda Can">
+                    <h3>Soda Can</h3>
+                    <p class="product-description">A chilled sparkling soft drink with a light taste that matches every snack.</p>
+                    <div class="product-footer">
+                        <p class="price">$1.25</p>
+                        <button onclick="addToCart('Soda Can', 1.25, 'images/products/soda.webp')">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-category="snack" data-name="Chips">
+                    <span class="product-tag">Snack</span>
+                    <img src="images/products/chips.png" alt="Chips">
+                    <h3>Chips</h3>
+                    <p class="product-description">Crunchy potato chips that make a quick and tasty snack between classes.</p>
+                    <div class="product-footer">
+                        <p class="price">$1.99</p>
+                        <button onclick="addToCart('Chips', 1.99, 'images/products/chips.png')">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-category="snack" data-name="Cookies">
+                    <span class="product-tag">Snack</span>
+                    <img src="images/products/cookie.webp" alt="Cookies">
+                    <h3>Cookies</h3>
+                    <p class="product-description">Sweet baked cookies with a soft texture, ideal with coffee or tea.</p>
+                    <div class="product-footer">
+                        <p class="price">$3.25</p>
+                        <button onclick="addToCart('Cookies', 3.25, 'images/products/cookie.webp')">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-category="meal" data-name="Instant Noodles">
+                    <span class="product-tag">Meal</span>
+                    <img src="images/products/instant_noodles.webp" alt="Instant Noodles">
+                    <h3>Instant Noodles</h3>
+                    <p class="product-description">A budget-friendly hot meal that can be prepared quickly during busy days.</p>
+                    <div class="product-footer">
+                        <p class="price">$0.99</p>
+                        <button onclick="addToCart('Instant Noodles', 0.99, 'images/products/instant_noodles.webp')">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-category="dessert" data-name="Ice Cream">
+                    <span class="product-tag">Dessert</span>
+                    <img src="images/products/ice_cream.webp" alt="Ice Cream">
+                    <h3>Ice Cream</h3>
+                    <p class="product-description">A smooth frozen dessert that adds a sweet finish to any order.</p>
+                    <div class="product-footer">
+                        <p class="price">$1.75</p>
+                        <button onclick="addToCart('Ice Cream', 1.75, 'images/products/ice_cream.webp')">Add to Cart</button>
+                    </div>
+                </article>
+
+                <article class="product" data-category="meal" data-name="Frozen Pizza">
+                    <span class="product-tag">Meal</span>
+                    <img src="images/products/pizza.webp" alt="Frozen Pizza">
+                    <h3>Frozen Pizza</h3>
+                    <p class="product-description">A filling and convenient meal option for lunch, dinner, or group study breaks.</p>
+                    <div class="product-footer">
+                        <p class="price">$8.95</p>
+                        <button onclick="addToCart('Frozen Pizza', 8.95, 'images/products/pizza.webp')">Add to Cart</button>
+                    </div>
+                </article>
+            </div>
+
+            <p id="no-results" class="no-results hidden">No products found.</p>
+        </section>
+
+        <section class="container info-section" id="about">
+            <div class="info-card">
+                <p class="eyebrow">About the Store</p>
+                <h2>About Campus Mini Mart</h2>
+                <p>Campus Mini Mart is a sample e-commerce website designed for students who need a simple way to view products and manage purchases online. The website focuses on clarity, fast navigation, and an organized layout.</p>
+            </div>
+            <div class="info-card">
+                <p class="eyebrow">Technologies Used</p>
+                <h2>Development Tools</h2>
+                <ul>
+                    <li>HTML for page structure and content.</li>
+                    <li>CSS for styling, layout, and responsive design.</li>
+                    <li>JavaScript for cart logic, filtering, and search features.</li>
+                    <li>localStorage to save cart items in the browser.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="container contact-section" id="contact">
+            <div class="info-card contact-card">
+                <p class="eyebrow">Contact</p>
+                <h2>Store Information</h2>
+                <div class="contact-grid">
+                    <div>
+                        <strong>Email</strong>
+                        <p>support@campusminimart.com</p>
+                    </div>
+                    <div>
+                        <strong>Phone</strong>
+                        <p>+970 59 000 0000</p>
+                    </div>
+                    <div>
+                        <strong>Location</strong>
+                        <p>Near the university campus</p>
+                    </div>
+                    <div>
+                        <strong>Working Hours</strong>
+                        <p>8:00 AM - 10:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p><strong>Campus Mini Mart</strong> - Front-End Web Project</p>
+            <p>Designed using HTML, CSS, and JavaScript</p>
+        </div>
+    </footer>
+
+    <script src="shop.js"></script>
+</body>
+</html>
